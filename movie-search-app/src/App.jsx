@@ -45,7 +45,9 @@ const App = () => {
   return (
     <div className="app">
       <h1>Movie Search App</h1>
+
       <SearchBar onSearch={fetchMovies} />
+      
       <div className="content">
         <aside className="sidebar">
           <Categories 
@@ -53,6 +55,7 @@ const App = () => {
             onCategoryClick={fetchMoviesByCategory} 
           />
         </aside>
+
         <main className="main-content">
           {error && <p className="error">{error}</p>}
           <MovieList 

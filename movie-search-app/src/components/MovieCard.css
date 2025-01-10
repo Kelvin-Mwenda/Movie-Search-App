@@ -16,7 +16,7 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.movie-card.expanded {
+.movie-card .expanded {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -74,16 +74,16 @@
   background: linear-gradient(transparent, #fff);
 }
 
-.movie-synopsis.full {
+.movie-synopsis .full {
   max-height: none;
   overflow: visible;
 }
 
-.movie-card.expanded .movie-synopsis {
+.movie-card .expanded .movie-synopsis {
   max-height: none;
   overflow: visible;
 }
 
-.movie-card.expanded .movie-synopsis::after {
+.movie-card .expanded .movie-synopsis::after {
   display: none;
 }

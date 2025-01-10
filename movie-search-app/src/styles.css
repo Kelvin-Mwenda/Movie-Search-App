@@ -35,108 +35,122 @@ div {
     }
 }
 
-
-.movie-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 10px 0;
-  background-color: #f9f9f9;
-  transition: transform 0.2s ease-in-out;
-}
-
-.movie-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.movie-poster {
-  width: 100px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.movie-info {
+/* General App Styling */
+.app {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  color: #333;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  height: 100vh; /* Ensure the app takes the full viewport height */
+  box-sizing: border-box;
 }
 
-.movie-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0 0 5px;
-  color: #333;
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.movie-year {
-  font-size: 14px;
-  color: #777;
-}
-
-
-.movie-page-container {
+/* Content Layout */
+.content {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
+  flex: 1; /* Allow content to grow to fill available space */
+  overflow: hidden; /* Prevent overflow */
   gap: 20px;
 }
 
-.categories-section {
-  width: 200px;
-  padding: 10px;
-  background-color: #f8f9fa;
+/* Sidebar Styling */
+.sidebar {
+  width: 250px; /* Fixed width for the sidebar */
+  flex-shrink: 0; /* Prevent shrinking */
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enable scrolling for long content */
 }
 
-.categories-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.sidebar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-.categories-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Main Content Styling */
+.main-content {
+  flex-grow: 1; /* Allow the main content to take up remaining space */
+  overflow-y: auto; /* Enable scrolling for long movie lists */
+  display: flex;
+  justify-content: center; /* Center the movie list */
+  align-items: flex-start; /* Align items to the top */
 }
 
-.categories-section li {
-  margin: 10px 0;
-  font-size: 1rem;
+/* Movie List Styling */
+.movies-section {
+  width: 800px; /* Fixed width for the movie list */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Movie Card Styling */
+.movie-card {
+  width: calc(33.333% - 20px); /* Ensure 3 cards fit per row with spacing */
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
-.categories-section li:hover {
-  text-decoration: underline;
-  color: #007bff;
-}
-
-.movies-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  flex: 1;
-}
-
-.movies-section img {
+.movie-card img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
-.movies-section h3 {
-  text-align: center;
-  margin-top: 10px;
+.movie-details {
+  padding: 10px;
+  text-align: left;
 }
 
-.movies-section p {
-  text-align: center;
+.movie-title {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.movie-year {
+  font-size: 0.9rem;
   color: #555;
+}
+
+.movie-synopsis {
+  font-size: 0.85rem;
+  color: #777;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit the number of lines */
+  -webkit-box-orient: vertical;
+}
+
+.movie-card.expanded {
+  transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .movies-section {
+    width: 100%; /* Movie list takes full width */
+  }
+
+  .movie-card {
+    width: calc(50% - 20px); /* 2 cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-card {
+    width: 100%; /* 1 card per row on very small screens */
+  }
 }
