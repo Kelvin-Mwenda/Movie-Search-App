@@ -1,23 +1,29 @@
-import PropTypes from "prop-types"; // Import PropTypes for prop validation
+import PropTypes from "prop-types";
+import { useState } from "react";
 import MovieCard from "./MovieCard";
-import "./MovieList.css"; // Import the stylesheet for styling
+import "./MovieList.css";
 
 const MovieList = ({ movies }) => {
-  return (
-    <div className="movie-page-container">
-      
+  const [activeCardId, setActiveCardId] = useState(null);
 
-      {/* Main content area for movies */}
-      <div className="movies-section">
-        {movies.map((movie) => (
-          <MovieCard key={movie.imdbID} movie={movie} />
-        ))}
-      </div>
+  const handleCardClick = (id) => {
+    setActiveCardId((prev) => (prev === id ? null : id));
+  };
+
+  return (
+    <div className="movie-list">
+      {movies.map((movie) => (
+        <MovieCard
+          key={movie.imdbID}
+          movie={movie}
+          isActive={activeCardId === movie.imdbID}
+          onClick={handleCardClick}
+        />
+      ))}
     </div>
   );
 };
 
-// Define the expected prop types for MovieList
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
@@ -25,6 +31,7 @@ MovieList.propTypes = {
       Title: PropTypes.string.isRequired,
       Year: PropTypes.string,
       Poster: PropTypes.string,
+      Plot: PropTypes.string,
     })
   ).isRequired,
 };

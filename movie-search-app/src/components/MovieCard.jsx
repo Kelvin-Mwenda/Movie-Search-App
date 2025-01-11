@@ -12,6 +12,7 @@ const MovieCard = ({ movie, isExpanded, toggleExpand }) => {
         alt={movie.Title}
         className="movie-poster"
       />
+      
       <div className="movie-details">
         <h3 className="movie-title">{movie.Title}</h3>
         <p className="movie-year">Year Released: {movie.Year}</p>

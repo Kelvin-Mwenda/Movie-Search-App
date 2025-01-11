@@ -154,3 +154,23 @@ h1 {
     width: 100%; /* 1 card per row on very small screens */
   }
 }
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.main-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.movie-list-section {
+  flex: 1;
+  margin-left: 20px;
+}
